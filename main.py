@@ -6,20 +6,18 @@ import time
 
 #Selecionando operação
 print("O que deseja fazer ?")
-print("/texto - Pesquisa simples.")
-print("/foto - Pesquisar Foto.")
+print("/texto <TEXTO> - Pesquisar um simples.")
+print("/foto  <TEXTO> - Pesquisar Foto por texto.")
 op = input("Digite a operação:\n")
 
-if(op.lower() == '/texto'):    
-        txt = input("Por favor digite o texto que deseja pesquisar:\n")
+if(op.split(" ")[0] == '/texto'):
         #Pesquisar somente.
         _bot = helpers.bot()
-        _bot.pesquisar(txt)
-elif(op.lower() == '/foto'):
-        txt = input("Por favor digite a foto que deseja pesquisar:\n")
+        _bot.pesquisar(op.split(" ")[1])
+elif(op.split(" ")[0] == '/foto'):
         #Pesquisar por foto
         _bot = helpers.bot()
-        _bot.pesquisar_foto(txt, 1)
+        _bot.pesquisar_foto(op.split(" ")[1], 1)
 
 
 _bot.close()
