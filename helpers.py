@@ -16,6 +16,7 @@ class bot:
     
     def close(self):
         time.sleep(5)
+        print(100*"\n")
         self._driver.close()
         self._driver.quit()
 
